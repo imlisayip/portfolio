@@ -13,6 +13,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `ws7eiam1j3y8`,
+        accessToken: `tnOsVmtLU880CtQ03r1LNysyq_0OOQ9oQj8BIAJrURw`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
