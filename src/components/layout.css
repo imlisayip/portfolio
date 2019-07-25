@@ -621,7 +621,6 @@ pre tt:after {
   }
 }
 
-
 /* ________________________ */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
 html {
@@ -633,7 +632,7 @@ header {
   the inline styles just for this example.
   in production code, avoid using it where
   possible*/
-  background-color: cadetblue !important;
+  background-color: salmon !important;
 }
 
 header div {
