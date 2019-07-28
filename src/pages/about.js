@@ -1,22 +1,22 @@
 import React from "react"
-
 import { graphql } from "gatsby"
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const About = ({ data }) => {
-    console.log(data.AboutPageQuery)
-    // const { title, image, content, condense } = data.AboutPageQuery;
+    const { image, content } = data.allContentfulAbout.edges[0].node;
+
     return (
         <Layout>
             {/* <SEO title="About" keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className="about">
-                {/* {title}
-                {image}
-                {content}
-                {condense} */}
+                <img alt={image.title} src={image.file.url} />
+                {image.title}
+                <div>{documentToHtmlString(content.json)}</div>
             </div>
         </Layout>
     );
@@ -25,19 +25,21 @@ const About = ({ data }) => {
 export default About
 
 export const query = graphql`
-    query AboutPageQuery {
-        contentfulAbout {
-            title
-            image {
-                file {
-                    url
+    query AboutQuery {
+        allContentfulAbout (limit:1) {
+            edges {
+                node {
+                    id
+                    image {
+                        title
+                        file {
+                            url
+                        }
+                    }
+                    content {
+                        json
+                    }
                 }
-            }
-            condense {
-                condense
-            }
-            content {
-                content
             }
         }
     }
