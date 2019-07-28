@@ -1,0 +1,81 @@
+@import "./mixins.scss";
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+:root {
+  --maxWidth: 800px;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--maxWidth);
+}
+
+.border-top {
+  border-top: 1px solid #bfbfbf;
+  padding-top: 5px;
+  margin-top: 50px;
+}
+header {
+  align-items: center;
+  // background-color: linen;
+  display: flex;
+  //   font-family: "Roboto";
+  height: 60px;
+  // height: spacing(large);
+  justify-content: space-between;
+  //   font-size: 30px;
+
+  @include breakpoint("medium") {
+    height: 80px;
+  }
+}
+navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+span {
+  color: #212121;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  // width: 100%;
+
+  &:before {
+    background: rgba(49, 26, 24, 0.1);
+    content: "";
+    display: block;
+    position: absolute;
+    left: 5px;
+    bottom: 1px;
+    height: 30%;
+    width: 0;
+    // -webkit-transition: width 0s ease,background .4s ease;
+    transition: width 0s ease, background 0.4s ease;
+  }
+  &:after {
+    background: rgba(49, 26, 24, 0.2);
+    content: "";
+    display: block;
+    position: absolute;
+    left: 5px;
+    bottom: 1px;
+    height: 30%;
+    width: 100%;
+    // -webkit-transition: width 0s ease,background .4s ease;
+    transition: width 0s ease, background 0.4s ease;
+  }
+}
+
+img {
+  max-width: var(--maxWidth);
+}
+.footer {
+  background-color: linen;
+}
