@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 
@@ -8,7 +8,22 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 // import "./index.css"
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
+    const data = useStaticQuery(graphql`
+        query AboutConciseQuery {
+            allContentfulAboutConcise  {
+                edges {
+                    node {
+                        id
+                        title
+                        body {
+                            json
+                        }
+                    }
+                }
+            }
+        }
+    `)
     const { title, body } = data.allContentfulAboutConcise.edges[0].node;
 
     return (
@@ -23,19 +38,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-    query AboutConciseQuery {
-        allContentfulAboutConcise  {
-            edges {
-                node {
-                    id
-                    title
-                    body {
-                        json
-                    }
-                }
-            }
-        }
-    }
-`
