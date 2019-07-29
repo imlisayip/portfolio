@@ -15,11 +15,6 @@ body {
   width: var(--maxWidth);
 }
 
-.border-top {
-  border-top: 1px solid #bfbfbf;
-  padding-top: 5px;
-  margin-top: 50px;
-}
 header {
   align-items: center;
   // background-color: linen;
@@ -33,11 +28,6 @@ header {
   @include breakpoint("medium") {
     height: 80px;
   }
-}
-navigation {
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
 }
 
 span {
@@ -73,9 +63,29 @@ span {
   }
 }
 
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.border-top {
+  border-top: 1px solid #bfbfbf;
+  padding-top: 5px;
+  margin-top: 50px;
+}
+
+a {
+  &:-webkit-any-link {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 img {
   max-width: var(--maxWidth);
 }
+
 .footer {
   background-color: linen;
 }

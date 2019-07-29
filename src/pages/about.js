@@ -11,25 +11,23 @@ const About = () => {
     const data = useStaticQuery(graphql`
         query AboutQuery {
             allContentfulAbout {
-                edges {
-                    node {
-                        id
-                        image {
-                            title
-                            file {
-                                url
-                            }
+                nodes {
+                    id
+                    image {
+                        title
+                        file {
+                            url
                         }
-                        content {
-                            json
-                        }
+                    }
+                    content {
+                        json
                     }
                 }
             }
         }
     `)
 
-    const { image, content } = data.allContentfulAbout.edges[0].node;
+    const { image, content } = data.allContentfulAbout.nodes[0];
 
     return (
         <Layout>

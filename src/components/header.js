@@ -13,17 +13,17 @@ const Header = ({ siteTitle }) => (
                 // color: `white`,
                 textDecoration: `none`,
             }}>
-            <h2 >{siteTitle}</h2>
+            <h2>{siteTitle}</h2>
         </Link >
 
 
-        <navigation>
+        <div className="navigation">
             <Link to="/">Work</Link>
             <Link to="about">About</Link>
             {/* <Link to="travel"><span>Travel</span></Link> */}
             <Link to="contact">Contact</Link>
             <Link to="now">Now</Link>
-        </navigation>
+        </div>
         {/* <Router>
                 <Work path="/" />
                 <About path="about" />

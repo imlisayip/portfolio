@@ -12,20 +12,17 @@ const IndexPage = () => {
     const data = useStaticQuery(graphql`
         query AboutConciseQuery {
             allContentfulAboutConcise  {
-                edges {
-                    node {
-                        id
-                        title
-                        body {
-                            json
-                        }
+                nodes {
+                    id
+                    title
+                    body {
+                        json
                     }
                 }
             }
         }
     `)
-    const { title, body } = data.allContentfulAboutConcise.edges[0].node;
-
+    const { title, body } = data.allContentfulAboutConcise.nodes[0];
     return (
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
