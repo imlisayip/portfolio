@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { MARKS } from '@contentful/rich-text-types';
 
 
 import Layout from "../components/layout"
@@ -22,6 +23,11 @@ const IndexPage = () => {
             }
         }
     `)
+    const options = {
+        renderMark: {
+            [MARKS.UNDERLINE]: text => `<span>${text}</span>`
+        }
+    }
 
     const { title, body } = data.allContentfulAboutConcise.nodes[0];
 
@@ -29,7 +35,7 @@ const IndexPage = () => {
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
             <div className="home">
-                <div key={title} dangerouslySetInnerHTML={{ __html: documentToHtmlString(body.json.content[0]) }} />
+                <div key={title} dangerouslySetInnerHTML={{ __html: documentToHtmlString(body.json.content[0], options) }} />
 
             </div>
             <div className="caseStudy">
