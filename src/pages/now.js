@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-
 import Layout from "../components/layout"
 
 const Now = () => {
@@ -26,7 +25,7 @@ const Now = () => {
             {/* <SEO title="Now" keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className="now">
                 <p>{title}</p>
-                <div>{documentToHtmlString(content.json)}</div>
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json) }} />
             </div>
         </Layout>
     );
