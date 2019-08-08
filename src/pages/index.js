@@ -22,12 +22,21 @@ const IndexPage = () => {
             }
         }
     `)
+
     const { title, body } = data.allContentfulAboutConcise.nodes[0];
+
     return (
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
             <div className="home">
-                <div key={title}>{documentToHtmlString(body.json.content[0])}</div>
+                <div key={title} dangerouslySetInnerHTML={{ __html: documentToHtmlString(body.json.content[0]) }} />
+
+            </div>
+            <div className="caseStudy">
+                cast study
+            </div>
+            <div className="archive">
+                archive
             </div>
             {/* <Link to="/blogposts/">View all posts</Link> */}
         </Layout >
