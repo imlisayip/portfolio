@@ -14,10 +14,10 @@ const About = () => {
                 nodes {
                     id
                     image {
-                        title
                         file {
                             url
                         }
+                        title
                     }
                     content {
                         json
@@ -27,15 +27,17 @@ const About = () => {
         }
     `)
 
+
     const { image, content } = data.allContentfulAbout.nodes[0];
+
 
     return (
         <Layout>
             {/* <SEO title="About" keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className="about">
                 <img alt={image.title} src={image.file.url} />
-                {image.title}
-                <div>{documentToHtmlString(content.json)}</div>
+                <p className="image-caption">{image.title}</p>
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json) }} />
             </div>
         </Layout>
     );
