@@ -1,31 +1,66 @@
-/*** BREAKPOINTs ***/
-$breakpoints: (
-  "small": 375px,
-  "medium": 736px,
-  "large": 1080px,
-) !default;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-@mixin breakpoint($breakpoint) {
-  // If the key exists in the map
-  @if map-has-key($breakpoints, $breakpoint) {
-    // Prints a media query based on the value
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+// !global allows us to scope different sets of settings within the list
+
+$-breakpoints: (
+  base: 0,
+) !default !global;
+
+@mixin breakpoint-set($breakpoint-name, $min-width) {
+  $-breakpoints: map-merge(
+    $-breakpoints,
+    (
+      $breakpoint-name: $min-width,
+    )
+  ) !global;
+}
+
+@mixin breakpoint($value: 0) {
+  $min-width: map-get($-breakpoints, $value) or $value;
+  @if $min-width > 0 {
+    @media only screen and (min-width: #{$min-width}) {
       @content;
     }
-  }
-
-  // If the key doesn't exist in the map
-  @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  } @else {
+    @content;
   }
 }
 
 /*** SPACING ***/
+$-spacing: () !default !global;
+
+@mixin spacing-set($spacing-name, $value) {
+  $-spacing: map-merge(
+    $-spacing,
+    (
+      $spacing-name: $value,
+    )
+  ) !global;
+}
+
 @function spacing-get-value($spacing-name) {
-  @if map-has-key($-arbor-spacing, $spacing-name) {
-    @return map-get($-arbor-spacing, $spacing-name);
+  @if map-has-key($-spacing, $spacing-name) {
+    @return map-get($-spacing, $spacing-name);
   } @else {
-    @warn "Arbor: No spacing of #{$spacing-name} found.";
+    @warn "No spacing of #{$spacing-name} found.";
   }
 }
+
+// Default Settings
+// =============================================================================
+$output-classes: true !default;
+
+// Default Breakpoints
+// =============================================================================
+@include breakpoint-set(small, 375px);
+@include breakpoint-set(medium, 736px);
+@include breakpoint-set(large, 1024px);
+
+// Default Spacing Sizes
+// =============================================================================
+@include spacing-set(none, 0);
+@include spacing-set(micro, 10px);
+@include spacing-set(small, 20px);
+@include spacing-set(medium, 30px);
+@include spacing-set(large, 50px);
+@include spacing-set(jumbo, 100px);

@@ -29,9 +29,9 @@ const Layout = ({ children }) => {
             <div>
                 <main>{children}</main>
             </div>
-            <footer>
+            {/* <footer>
                 footer © {new Date().getFullYear()}
-            </footer>
+            </footer> */}
         </>
     )
 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Router, Link } from '@reach/router'
-// imoprt About from '../pages/about'
-
+import Contact from '../components/contact'
 
 const Header = ({ siteTitle }) => (
     <header role="banner">
@@ -21,16 +20,9 @@ const Header = ({ siteTitle }) => (
             <Link to="/">Work</Link>
             <Link to="about">About</Link>
             {/* <Link to="travel"><span>Travel</span></Link> */}
-            <Link to="contact">Contact</Link>
-            <Link to="now">Now</Link>
+            <Contact />
+            {/* <Link to="now">Now</Link> */}
         </div>
-        {/* <Router>
-                <Work path="/" />
-                <About path="about" />
-                <Travel path="travel" />
-                <Contact path="contact" />
-                <Now path="now" />
-            </Router> */}
 
         {/* TODO: perhaps indicate the page I'm on with bold? */}
     </header >

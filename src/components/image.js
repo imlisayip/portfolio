@@ -23,10 +23,17 @@ const Image = () => {
           }
         }
       }
+      aboutPhoto: file(relativePath: { eq: "lisa-smiling-train.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img fluid={data.aboutPhoto.childImageSharp.fluid} />
 }
 
 export default Image
