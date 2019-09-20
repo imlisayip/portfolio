@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Router, Link } from '@reach/router'
-import Contact from '../components/contact'
+import Contact from './contact'
 
 const Header = ({ siteTitle }) => (
     <header role="banner">
