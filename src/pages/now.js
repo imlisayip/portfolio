@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 
@@ -28,8 +28,8 @@ const Now = () => {
 
     return (
         <>
-            {/* <SEO title="Now" keywords={[`gatsby`, `about`, `react`]} /> */}
-            <div className="now">
+            {/* <SEO title='Now' keywords={[`gatsby`, `about`, `react`]} /> */}
+            <div className='now'>
                 <p>{title}</p>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
             </div>

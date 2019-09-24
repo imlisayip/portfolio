@@ -1,29 +1,43 @@
-import React from "react"
+import React from 'react'
 import { FaExternalLinkAlt, FaClone } from 'react-icons/fa'
 
 const Contact = () => {
+
+    function handleEmail() {
+        /* Get the text field */
+        let copyText = 'hello@lisayip.com';
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand('copy');
+
+        /* Alert the copied text */
+        alert('Copied the text: ' + copyText.value);
+    }
+
     return (
-        <React.Fragment>
-            {/* <div classname="nav-contact">Contact</div> */}
-            <div className="contact">
-                <div className="contact-molecule">
-                    <button onClick="copyEmail()">
-                        <FaClone color="darkolivegreen" size={22} />
+        <>
+            <div className='contact'>
+                <div className='contact-molecule'>
+                    <button onClick={() => handleEmail()}>
+                        <FaClone color='darkolivegreen' size={22} />
                     </button>
-                    <a href="mailto:hello@lisayip.com">
-                        <FaExternalLinkAlt color="darkolivegreen" size={22} />
-                        {/* <img className="external-icon" src="https://image.flaticon.com/icons/svg/133/133937.svg" /> */}
+                    <a href='mailto:hello@lisayip.com'>
+                        <FaExternalLinkAlt color='darkolivegreen' size={22} />
                     </a>
                 </div>
 
-                <div className="word">
+                <div className='word'>
                     Contact
                 </div>
-                <div className="email">
+                <div className='email'>
                     hello@lisayip.com
                 </div>
             </div>
-        </React.Fragment>
+        </>
 
 
     )

@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { MARKS } from '@contentful/rich-text-types';
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+// import { MARKS } from '@contentful/rich-text-types';
 
 
 const Archives = () => {
@@ -22,10 +22,10 @@ const Archives = () => {
 
     return (
         <>
-            <div className="header">Archives</div>
-            <div className="archives">
+            <div className='header'>Archives</div>
+            <div className='archives'>
                 {archives.map(({ node: archive }) => (
-                    <div id={archive.id} className="archive">
+                    <div id={archive.id} className='archive'>
                         <a href={archive.link}>{archive.title}</a>
                     </div>
                 ))}

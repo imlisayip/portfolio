@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Work from '../pages/Work'
 import About from '../pages/About'
 import Header from '../components/header'
-import "../index.scss"
+import '../index.scss'
 
 class App extends React.Component {
     render() {

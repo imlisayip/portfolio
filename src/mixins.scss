@@ -42,7 +42,7 @@ $-spacing: () !default !global;
   @if map-has-key($-spacing, $spacing-name) {
     @return map-get($-spacing, $spacing-name);
   } @else {
-    @warn "No spacing of #{$spacing-name} found.";
+    @warn 'No spacing of #{$spacing-name} found.';
   }
 }
 

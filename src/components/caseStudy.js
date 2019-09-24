@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 
