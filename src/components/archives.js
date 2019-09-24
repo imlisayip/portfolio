@@ -21,13 +21,16 @@ const Archives = () => {
     const archives = data.allContentfulArchive.edges
 
     return (
-        <div className="archives">
-            {archives.map(({ node: archive }) => (
-                <div id={archive.id} className="archive">
-                    <a href={archive.link}>{archive.title}</a>
-                </div>
-            ))}
-        </div>
+        <>
+            <div className="header">Archives</div>
+            <div className="archives">
+                {archives.map(({ node: archive }) => (
+                    <div id={archive.id} className="archive">
+                        <a href={archive.link}>{archive.title}</a>
+                    </div>
+                ))}
+            </div>
+        </>
     )
 }
 

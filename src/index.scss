@@ -18,15 +18,64 @@ body {
   }
 }
 
+// .container {
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
 header {
   align-items: center;
   display: flex;
   height: spacing-get-value("large");
   justify-content: space-between;
-  text-transform: uppercase;
 
   @include breakpoint("medium") {
     height: spacing-get-value("jumbo");
+  }
+}
+.navigation {
+  display: flex;
+  width: 45%;
+}
+
+.navigation li {
+  margin-left: 15px;
+}
+.active {
+  color: darkolivegreen !important;
+}
+button {
+  border: none;
+}
+li {
+  list-style-type: none;
+}
+
+.contact {
+  // color: salmon;
+
+  .word {
+    display: block;
+  }
+
+  .email {
+    display: none;
+  }
+  .contact-molecule {
+    display: none;
+    margin-top: -27px;
+    margin-left: 35px;
+  }
+
+  &:hover {
+    color: darkolivegreen;
+    .word {
+      display: none;
+    }
+    .email,
+    .contact-molecule {
+      display: flex;
+    }
   }
 }
 
@@ -63,14 +112,6 @@ span {
   }
 }
 
-.navigation {
-  display: flex;
-  justify-content: space-evenly;
-  // padding-left: spacing-get-value("large");
-  width: 50%;
-  // text-transform: uppercase;
-}
-
 .border-top {
   border-top: 1px solid #bfbfbf;
   padding-top: 5px;
@@ -84,10 +125,6 @@ a {
   }
 }
 
-img {
-  max-width: var(--maxWidth);
-}
-
 .footer {
   background-color: linen;
 }
@@ -97,7 +134,8 @@ img {
 }
 
 img {
-  background-color: gray;
+  // max-width: var(--maxWidth);
+  background-color: white;
   border-radius: 5px;
   object-fit: cover;
   object-position: 100% 0;
@@ -123,15 +161,18 @@ img {
     // }
   }
 }
+.header {
+  font-size: 18px;
+  text-align: center;
+}
 
 // archive
-.archives-header {
-  font-size: 20px;
-}
-.archives {
+
+.block {
   margin: spacing-get-value("small") 0;
+  width: 50%;
   @include breakpoint("medium") {
-    margin: spacing-get-value ("medium") 0;
+    margin: spacing-get-value("medium") 0;
   }
 }
 
@@ -142,48 +183,12 @@ img {
   }
 }
 // case study
-.casestudy-header {
-  font-size: 20px;
-}
 
 .ULlist {
   color: salmon;
   //   margin: 0;
 }
-// contact
 
-.nav-contact {
-  background-color: salmon;
-}
-
-.contact {
-  color: salmon;
-  align-items: right;
-
-  .word {
-    display: block;
-  }
-
-  .email {
-    display: none;
-  }
-  .contact-molecule {
-    display: none;
-    margin-top: -27px;
-  }
-
-  &:hover {
-    .word {
-      display: none;
-    }
-    .email,
-    .contact-molecule {
-      display: block;
-    }
-  }
-}
-
-.copy-icon,
-.external-icon {
-  height: 20px;
+.showcase {
+  display: flex;
 }

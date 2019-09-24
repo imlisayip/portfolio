@@ -4,7 +4,6 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const About = () => {
