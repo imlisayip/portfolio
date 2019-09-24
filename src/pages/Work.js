@@ -8,7 +8,7 @@ import Archives from '../components/Archives'
 export default class Work extends React.Component {
     render() {
         return (
-            <React.Fragment>
+            <>
                 <div className="home">
                     <AboutConcise />
                 </div>
@@ -20,7 +20,7 @@ export default class Work extends React.Component {
                         <Archives />
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }

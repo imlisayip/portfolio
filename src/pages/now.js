@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 
-import Layout from "../components/layout"
 
 const Now = () => {
     const data = useStaticQuery(graphql`
@@ -28,13 +27,13 @@ const Now = () => {
     const { title, content } = data.allContentfulNow.nodes[0];
 
     return (
-        <Layout>
+        <>
             {/* <SEO title="Now" keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className="now">
                 <p>{title}</p>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
             </div>
-        </Layout>
+        </>
     );
 }
 

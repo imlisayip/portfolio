@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 
-import Layout from "../components/layout"
 // import SEO from "../components/seo"
 
 const About = () => {
@@ -36,14 +35,14 @@ const About = () => {
 
 
     return (
-        <Layout>
+        <>
             {/* <SEO title="About" keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className="about">
                 <img alt={image.title} src={image.file.url} />
                 <p className="image-caption">{image.title}</p>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
             </div>
-        </Layout>
+        </>
     );
 }
 
