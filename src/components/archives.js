@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-// import { MARKS } from '@contentful/rich-text-types';
-
+import Project from './Project'
 
 const Archives = () => {
     const data = useStaticQuery(graphql`
@@ -12,6 +11,12 @@ const Archives = () => {
                         id
                         link
                         title
+                        image {
+                            file {
+                                url
+                            }
+                            description
+                        }
                     }
                 }
             }
@@ -22,14 +27,8 @@ const Archives = () => {
 
     return (
         <>
-            <div className='title'>Archives</div>
-            <div className='archives'>
-                {archives.map(({ node: archive }) => (
-                    <div id={archive.id} className='archive'>
-                        <a href={archive.link}>{archive.title}</a>
-                    </div>
-                ))}
-            </div>
+            <Project blurbs={archives} block="Archive" orientation="reverse" />
+            <p>Additional work samples available on request</p>
         </>
     )
 }
