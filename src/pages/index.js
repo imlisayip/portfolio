@@ -15,7 +15,7 @@ class App extends React.Component {
                     <Navigation siteTitle='Lisa Yip' />
                     <Switch>
                         <Route exact path='/' component={Work} />
-                        <Route exact path='/About' component={About} />
+                        <Route exact path='/about' component={About} />
                         <Route render={() => <p>Not Found</p>} />
                     </Switch>
                 </div>

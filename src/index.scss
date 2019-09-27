@@ -1,44 +1,64 @@
 @import "./mixins.scss";
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Nunito|Roboto&display=swap");
 
 :root {
-  --maxWidth: 700px;
+  --maxWidth: 800px;
   --colorHex: #ed7d31;
   --colorRGB: 237, 125, 49;
+  --colorGray: 38, 49, 55;
 }
 
-html {
-  font-family: "Roboto", sans-serif;
+// html {
+// font-family: var(--nunito);
+// }
+
+h1 {
+  @include type("title-1");
+  color: var(--colorHex);
 }
+
 a {
+  background-color: transparent;
+
   &:-webkit-any-link {
     color: black;
   }
-
-  background-color: transparent;
 }
 
 body {
-  margin-left: 45px;
-  margin-right: 45px;
+  padding-left: 1em;
+  padding-right: 1em;
 
   @include breakpoint("medium") {
     margin-left: auto;
     margin-right: auto;
-    width: var(--maxWidth);
+    max-width: var(--maxWidth);
   }
 }
 
 button {
+  @include type("copy-small");
+  display: flex;
+  background-color: black;
   border: none;
-  &:focus {
-    outline: none;
+  color: white;
+  cursor: pointer;
+  margin: 10px auto;
+  padding: 10px 50px;
+  opacity: 1;
+  outline: none;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @include breakpoint("medium") {
+    margin: 30px auto;
   }
 }
 
 img {
-  // max-width: var(--maxWidth);
-  background-color: white;
+  background-color: transparent;
   border-radius: 5px;
   object-fit: cover;
   object-position: 100% 0;
@@ -99,17 +119,43 @@ span,
 }
 
 // ----------------- UNIVERSAL ----------------- //
-.title {
-  font-size: 18px;
-  margin-bottom: spacing-get-value("small");
-}
 
 .image-caption {
-  color: var(--colorHex);
-  opacity: 0.8;
-  font-size: 15px;
+  @include type("copy-small");
+  color: rgba(var(--colorGray), 1);
   font-style: italic;
   text-align: center;
+}
+
+.text {
+  @include type("copy-standard");
+}
+.caption {
+  @include type("copy-standard");
+
+  color: rgba(var(--colorGray), 1);
+}
+.title {
+  @include type("copy-large");
+}
+
+h1 {
+  @include type("title-1");
+  margin-top: 0;
+}
+h2 {
+  @include type("title-2");
+}
+h3 {
+  @include type("title-3");
+}
+h4 {
+  @include type("title-4");
+  margin-top: 0;
+}
+h5 {
+  @include type("title-5");
+  margin-top: 0;
 }
 
 // ----------------- NAVIGATION ----------------- //
