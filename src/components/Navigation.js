@@ -3,9 +3,16 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Contact from './contact'
 
-const Header = ({ siteTitle = 'Lisa Yip' }) => (
+
+const Navigation = ({ siteTitle = 'Lisa Yip' }) => (
     <header>
-        <NavLink to='/' ><h2>{siteTitle}</h2></NavLink>
+        <NavLink activeClassName='' to='/' >
+            {/* <span> */}
+            <h1>
+                {siteTitle}
+            </h1>
+            {/* </span> */}
+        </NavLink>
         <ul className='navigation'>
             <li>
                 <NavLink exact activeClassName='active' to='/'>Work</NavLink>
@@ -14,18 +21,24 @@ const Header = ({ siteTitle = 'Lisa Yip' }) => (
                 <NavLink activeClassName='active' to='/about'>About</NavLink>
             </li>
             <li>
-                <Contact />
+                <a href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank'>Resume</a>
             </li>
+            {/* <li>
+                <Contact />
+            </li> */}
         </ul>
     </header>
 )
 
-Header.propTypes = {
+Navigation.propTypes = {
     siteTitle: PropTypes.string,
 }
 
-Header.defaultProps = {
+Navigation.defaultProps = {
     siteTitle: ``,
 }
 
-export default Header
+export default Navigation
+
+// scroll to top
+// social media on side vertically

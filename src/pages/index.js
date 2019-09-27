@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import SEO from '../components/seo'
 import Work from '../pages/Work'
 import About from '../pages/About'
-import Header from '../components/header'
+import Navigation from '../components/navigation'
 import '../index.scss'
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
         return (
             <Router>
                 <div className='container'>
-                    <Header siteTitle='Lisa Yip' />
+                    <Navigation siteTitle='Lisa Yip' />
                     <Switch>
                         <Route exact path='/' component={Work} />
                         <Route exact path='/About' component={About} />

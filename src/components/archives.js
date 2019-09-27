@@ -22,7 +22,7 @@ const Archives = () => {
 
     return (
         <>
-            <div className='header'>Archives</div>
+            <div className='title'>Archives</div>
             <div className='archives'>
                 {archives.map(({ node: archive }) => (
                     <div id={archive.id} className='archive'>

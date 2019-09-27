@@ -17,6 +17,11 @@ const CaseStudy = () => {
                     content {
                         json
                     }
+                    image {
+                        file {
+                            url
+                        }
+                    }
                 }
             }
         }
@@ -32,12 +37,10 @@ const CaseStudy = () => {
 
     const { title, content, projectOverview } = data.allContentfulCaseStudy.nodes[0];
 
-    console.log(projectOverview.json)
-    console.log(content.json)
 
     return (
-        <React.Fragment>
-            <div className="casestudy-header">
+        <>
+            <div className='header'>
                 {title}
             </div>
 
@@ -46,12 +49,12 @@ const CaseStudy = () => {
                     <div key={index} dangerouslySetInnerHTML={{ __html: documentToHtmlString(data, options) }} />
                 ))}
             </div>
-            <div className="casestudy-content">
+            <div className='casestudy-content'>
                 {content.json.content.map((data, index) => (
                     <div key={index} dangerouslySetInnerHTML={{ __html: documentToHtmlString(data, options) }} />
                 ))}
             </div>
-        </React.Fragment>
+        </>
     )
 }
 
