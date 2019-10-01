@@ -2,50 +2,41 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Headroom from 'react-headroom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // import Contact from './contact'
 
-
 const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
 
-    return (
-        <Headroom >
-            {/* <header >
-                <NavLink activeClassName='' to='/' ><h1>{siteTitle}</h1> </NavLink>
-                <ul className='navigation'>
-                    <li>
-                        <NavLink exact activeClassName='active' to='/'>Work</NavLink>
-                    </li>
-                    <li>
-                        <NavLink activeClassName='active' to='/about'>About</NavLink>
-                    </li>
-                    <li>
-                        <a href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
-                    </li>
-                </ul>
+    function checkbox() {
+        if (window.innerWidth < 736) {
+            document.getElementById("menu-btn").checked = false;
+        }
+    }
 
-            </header> */}
+    return (
+        <Headroom>
             <header className="header">
-                <NavLink activeClassName='' className="site-title" to='/' ><h1>{siteTitle}</h1> </NavLink>
+                <NavLink onClick={checkbox} activeClassName='' className="site-title" to='/' ><h1>{siteTitle}</h1> </NavLink>
 
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
-                <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+                <label className="menu-icon" htmlFor="menu-btn">
+                    <span className="navicon"></span>
+                </label>
                 <ul className='menu'>
                     <li>
-                        <NavLink exact activeClassName='active' to='/'>Work</NavLink>
+                        <NavLink onClick={checkbox} exact activeClassName='active' to='/'>Work</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName='active' to='/about'>About</NavLink>
+                        <NavLink onClick={checkbox} activeClassName='active' to='/about'>About</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName='active' to='/aio'>Case Study</NavLink>
+                        <NavLink onClick={checkbox} activeClassName='active' to='/aio'>Case Study</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName='active' to='/style-guide'>Style Guide</NavLink>
+                        <NavLink onClick={checkbox} activeClassName='active' to='/style-guide'>Style Guide</NavLink>
                     </li>
                     <li>
-                        <a href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
+                        <a onClick={checkbox} href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>
                     {/* <li>
                     <Contact />
