@@ -29,7 +29,7 @@ const CaseStudy = () => {
 
     return (
         <>
-            <Project blurbs={infos} block="Case Study" />
+            <Project projects={infos} block="Case Study" />
                 {projectOverview.json.content.map((data, index) => (
                     <div key={index} dangerouslySetInnerHTML={{ __html: documentToHtmlString(data, options) }} />
                 ))}

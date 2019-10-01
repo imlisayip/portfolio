@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import CaseStudyExpanded from '../pages/CaseStudyExpanded';
 
 
 function Project({ blurbs, block, orientation }) {
@@ -34,8 +37,8 @@ function Project({ blurbs, block, orientation }) {
 }
 
 Project.propTypes = {
-    blurbs: PropTypes.array.isRequired,
-    block: PropTypes.string.isRequired
+    projects: PropTypes.array.isRequired,
+    block: PropTypes.string.isRequired,
+    orientation: PropTypes.string,
+    site: PropTypes.bool
 }
-
-export default Project

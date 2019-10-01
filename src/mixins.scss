@@ -1,6 +1,58 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito|Roboto&display=swap");
+
+$heading-font-family: "Roboto", sans-serif !default;
+$copy-font-family: "Nunito", sans-serif !default;
 
 // !global allows us to scope different sets of settings within the list
+
+// Typography setter, mixins and classes based on breakpoints
+// =============================================================================
+
+$-type: () !default !global;
+
+@mixin type-set($type-name, $breakpoint-name, $type-properties) {
+  $type-group: map-get($-type, $type-name) or ();
+  $type-group: map-merge(
+    $type-group,
+    (
+      $breakpoint-name: $type-properties,
+    )
+  );
+  $-type: map-merge(
+    $-type,
+    (
+      $type-name: $type-group,
+    )
+  ) !global;
+}
+
+@mixin type($type-name, $type-property: null) {
+  @if map-has-key($-type, $type-name) {
+    $type-group: map-get($-type, $type-name);
+    @each $breakpoint-name, $type-properties in $type-group {
+      @include breakpoint($breakpoint-name) {
+        @each $property, $value in $type-properties {
+          @if not $type-property or $type-property == $property {
+            #{$property}: #{$value};
+          }
+        }
+      }
+    }
+  } @else {
+    @warn "No type of #{$type-name} found.";
+  }
+}
+
+@mixin yipify-type($prefix: "type--") {
+  @each $type-name, $type-group in $-type {
+    .#{$prefix}#{$type-name} {
+      @include type($type-name);
+    }
+  }
+}
+
+// Breakpoints, setter and mixins for mobile-first layouts
+// =============================================================================
 
 $-breakpoints: (
   base: 0,
@@ -26,7 +78,9 @@ $-breakpoints: (
   }
 }
 
-/*** SPACING ***/
+// Spacing (margin and padding), setter and mixins for mobile-first layouts
+// =============================================================================
+
 $-spacing: () !default !global;
 
 @mixin spacing-set($spacing-name, $value) {
@@ -55,6 +109,166 @@ $output-classes: true !default;
 @include breakpoint-set(small, 375px);
 @include breakpoint-set(medium, 736px);
 @include breakpoint-set(large, 1024px);
+
+// Default Headline Typography Sizes
+// =============================================================================
+@include type-set(
+  yipify,
+  base,
+  (
+    font-family: $heading-font-family,
+    font-size: 16px,
+    line-height: 1.65,
+    font-weight: 300,
+  )
+);
+
+@include type-set(
+  title-1,
+  base,
+  (
+    font-size: 39px,
+    line-height: 1.45,
+    font-weight: 100,
+    margin: 2em 0 0,
+    padding: 0,
+  )
+);
+@include type-set(
+  title-1,
+  medium,
+  (
+    font-size: 49px,
+  )
+);
+
+@include type-set(
+  title-2,
+  base,
+  (
+    font-size: 31px,
+    line-height: 1.45,
+    font-weight: 100,
+    margin: 2em 0 0,
+    padding: 0,
+  )
+);
+@include type-set(
+  title-2,
+  medium,
+  (
+    font-size: 39px,
+  )
+);
+
+@include type-set(
+  title-3,
+  base,
+  (
+    font-size: 25px,
+    line-height: 1.45,
+    font-weight: 100,
+    margin: 2em 0 0,
+    padding: 0,
+  )
+);
+@include type-set(
+  title-3,
+  medium,
+  (
+    font-size: 31px,
+  )
+);
+
+@include type-set(
+  title-4,
+  base,
+  (
+    font-size: 20px,
+    line-height: 1.45,
+    font-weight: 100,
+    margin: 2em 0 0,
+    padding: 0,
+  )
+);
+@include type-set(
+  title-4,
+  medium,
+  (
+    font-size: 25px,
+  )
+);
+
+@include type-set(
+  title-5,
+  base,
+  (
+    font-size: 20px,
+    line-height: 1.65,
+    font-weight: 300,
+    margin: 2em 0 0,
+    padding: 0,
+  )
+);
+
+// Default Copy Typography Sizes
+// =============================================================================
+@include type-set(
+  copy-large,
+  base,
+  (
+    font-family: $copy-font-family,
+    font-size: 20px,
+    line-height: 1.65,
+    font-weight: 400,
+    // margin: 1.5em 0 3px,
+      padding: 0,
+  )
+);
+@include type-set(
+  copy-standard,
+  base,
+  (
+    font-family: $copy-font-family,
+    font-size: 16px,
+    line-height: 1.65,
+    font-weight: 300,
+    // margin: 1.5em 0 3px,
+      padding: 0,
+  )
+);
+@include type-set(
+  copy-small,
+  base,
+  (
+    font-family: $copy-font-family,
+    font-size: 14px,
+    line-height: 1.65,
+    font-weight: 400,
+    // margin: 1.5em 0 3px,
+      padding: 0,
+  )
+);
+@include type-set(
+  copy-mini,
+  base,
+  (
+    font-family: $copy-font-family,
+    font-size: 13px,
+    line-height: 1.65,
+    font-weight: 400,
+    // margin: 1.5em 0 3px,
+      padding: 0,
+  )
+);
+
+@include type-set(
+  first,
+  base,
+  (
+    margin-top: 0,
+  )
+);
 
 // Default Spacing Sizes
 // =============================================================================

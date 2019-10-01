@@ -20,6 +20,9 @@ const About = () => {
                     content {
                         json
                     }
+                    contact {
+                        json
+                    }
                 }
             }
         }
@@ -31,7 +34,7 @@ const About = () => {
         }
     }
 
-    const { image, content } = data.allContentfulAbout.nodes[0];
+    const { image, contact, content } = data.allContentfulAbout.nodes[0];
 
 
     return (
@@ -41,6 +44,7 @@ const About = () => {
                 <img alt={image.title} src={image.file.url} />
                 <p className='image-caption'>{image.title}</p>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(contact.json, options) }} />
             </div>
         </>
     );

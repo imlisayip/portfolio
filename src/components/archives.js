@@ -17,6 +17,10 @@ const Archives = () => {
                             }
                             description
                         }
+                        blurb {
+                            json
+                        }
+                        role
                     }
                 }
             }
@@ -27,8 +31,8 @@ const Archives = () => {
 
     return (
         <>
-            <Project blurbs={archives} block="Archive" orientation="reverse" />
-            <p>Additional work samples available on request</p>
+            <Project projects={archives} block="Archive" orientation="reverse" site />
+            {/* <p>Additional work samples available on request</p> */}
         </>
     )
 }
