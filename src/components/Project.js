@@ -1,39 +1,74 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import CaseStudyExpanded from '../pages/CaseStudyExpanded';
+import CaseStudyExpanded from '../template/CaseStudyExpanded';
 
 
-function Project({ blurbs, block, orientation }) {
-    return (
-        <>
-            <h3>{block}</h3>
-            {
-                blurbs.map(({ node: blurb }, index) => (
-                    <div key={index} className="project">
-                        <div className={orientation === 'reverse' && index % 2 === 0 ? 'info reverse' : 'info'} >
-                            <img
-                                alt={Array.isArray(blurb.image) ? blurb.image[0].description : blurb.image.description}
-                                src={Array.isArray(blurb.image) ? blurb.image[0].file.url : blurb.image.file.url}
-                            />
-                            <div className="text">
-                                <h4>
-                                    {/* <span> */}
-                                    <a className="title" href={blurb.link}>{blurb.title}</a>
-                                    {/* </span> */}
-                                </h4>
-                                <div className="blurb">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</div>
-                                <div className="caption">role · company · year, ui/ux</div>
+export default class Project extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            caseStudy: false
+        }
+    }
+    render() {
+        const { caseStudy } = this.state
+        const { projects, block, orientation, site } = this.props
+
+        const options = {
+            renderMark: {
+                [MARKS.UNDERLINE]: text => `<span>${text}</span>`
+            },
+        }
+
+        // TODO: on true, switch to new page, not swap out
+        if (caseStudy === true) {
+            return <CaseStudyExpanded />
+        }
+
+        return (
+            <>
+                <h1>{block}</h1>
+                {
+                    projects.map(({ node: project }, index) => (
+                        <div key={index} className="project">
+                            <div className={orientation === 'reverse' && index % 2 === 0 ? 'info reverse' : 'info'} >
+                                {/* TODO: add link to this? */}
+                                <img
+                                    alt={Array.isArray(project.image) ? project.image[0].description : project.image.description}
+                                    src={Array.isArray(project.image) ? project.image[0].file.url : project.image.file.url}
+                                />
+                                <div className="text">
+                                    <h2>
+                                        {/* <span> */}
+                                        {/* <a className="title" href={project.link}></a> */}
+                                        {/* </span> */}
+                                        {project.title}
+                                    </h2>
+                                    <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(project.blurb.json, options) }} />
+                                    <p>Role: {project.role}</p>
+
+                                    {site
+                                        ? <a href={project.link}>
+                                            <button>
+                                                Visit site
+                                            </button>
+                                        </a>
+                                        : <button
+                                            onClick={() => this.setState({ caseStudy: true })} >
+                                            View {block}
+                                        </button>
+                                    }
+                                </div>
                             </div>
                         </div>
-                        <button>View {block}</button>
-                    </div>
-                ))
-            }
-
-        </>
-    )
+                    ))
+                }
+            </>
+        )
+    }
 }
 
 Project.propTypes = {

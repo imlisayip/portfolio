@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropType from 'prop-types'
 import AboutConcise from '../components/AboutConcise'
 import CaseStudy from '../components/CaseStudy'
 import Archives from '../components/Archives'

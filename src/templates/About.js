@@ -41,10 +41,13 @@ const About = () => {
         <>
             {/* <SEO title='About' keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className='about'>
-                <img alt={image.title} src={image.file.url} />
-                <p className='image-caption'>{image.title}</p>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(contact.json, options) }} />
+                <img
+                    alt={image.title}
+                    src={image.file.url}
+                />
+                <p className='image-caption'>{image.title}</p>
             </div>
         </>
     );
