@@ -16,7 +16,7 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
     return (
         <Headroom>
             <header className="header">
-                <NavLink onClick={checkbox} activeClassName='' className="site-title" to='/' ><h1>{siteTitle}</h1> </NavLink>
+                <NavLink onClick={checkbox} activeClassName='' className="site-title" to='/' >{siteTitle} </NavLink>
 
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
                 <label className="menu-icon" htmlFor="menu-btn">
@@ -32,9 +32,9 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
                     <li>
                         <NavLink onClick={checkbox} activeClassName='active' to='/aio'>Case Study</NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink onClick={checkbox} activeClassName='active' to='/style-guide'>Style Guide</NavLink>
-                    </li>
+                    </li> */}
                     <li>
                         <a onClick={checkbox} href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>

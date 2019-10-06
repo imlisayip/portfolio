@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import CaseStudyExpanded from '../template/CaseStudyExpanded';
+import CaseStudyExpanded from '../pages/CaseStudyExpanded';
 
 
 export default class Project extends React.Component {

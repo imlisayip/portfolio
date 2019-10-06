@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Project from './Project'
-
 
 const CaseStudy = () => {
     const data = useStaticQuery(graphql`
@@ -18,28 +16,19 @@ const CaseStudy = () => {
                             }
                             description
                         }
+                        blurb {
+                            json
+                        }
+                        role
                     }
                 }
             }
         }
     `)
+
     const infos = data.allContentfulCaseStudy.edges
 
-
-
-    return (
-        <>
-            <Project projects={infos} block="Case Study" />
-                {projectOverview.json.content.map((data, index) => (
-                    <div key={index} dangerouslySetInnerHTML={{ __html: documentToHtmlString(data, options) }} />
-                ))}
-            </div>
-            <div className='casestudy-content'>
-                {content.json.content.map((data, index) => (
-                    <div key={index} dangerouslySetInnerHTML={{ __html: documentToHtmlString(data, options) }} />
-                ))}
-        </>
-    )
+    return (<Project projects={infos} block="Case Study" />)
 }
 
 export default CaseStudy

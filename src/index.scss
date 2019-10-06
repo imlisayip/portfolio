@@ -14,11 +14,6 @@ body {
   margin: 0;
 }
 
-h1 {
-  @include type("title-1");
-  color: var(--colorHex);
-}
-
 a {
   background-color: transparent;
 
@@ -26,6 +21,7 @@ a {
     color: var(--colorDark);
     text-decoration: none;
   }
+
   & button {
     color: var(--colorLight);
   }
@@ -42,17 +38,19 @@ a {
 }
 
 button {
-  @include type("copy-small");
+  @include type("copy");
   display: flex;
   background-color: var(--colorDark);
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 0;
   color: var(--colorLight);
   cursor: pointer;
-  margin: 10px 0;
-  padding: 10px 50px;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 3rem;
   opacity: 1;
   outline: none;
   text-transform: uppercase;
+  text-shadow: 0 1px 0 var(--colorDark);
 
   &:hover {
     opacity: 0.9;
@@ -132,27 +130,24 @@ span,
 // ----------------- UNIVERSAL ----------------- //
 
 .image-caption {
-  @include type("copy-small");
+  @include type("copy");
   color: rgba(var(--colorGray), 1);
   font-style: italic;
   text-align: center;
 }
 
-.text {
-  @include type("copy-standard");
-}
 .caption {
-  @include type("copy-standard");
+  @include type("copy");
 
   color: rgba(var(--colorGray), 1);
 }
 .title {
-  @include type("copy-large");
+  @include type("copy");
 }
 
 h1 {
   @include type("title-1");
-  margin-top: 0;
+  // color: var(--colorHex);
 }
 h2 {
   @include type("title-2");
@@ -162,13 +157,11 @@ h3 {
 }
 h4 {
   @include type("title-4");
-  margin-top: 0;
-}
-h5 {
-  @include type("title-5");
-  margin-top: 0;
 }
 
+p {
+  @include type("copy");
+}
 // ----------------- NAVIGATION ----------------- //
 
 .headroom-wrapper {
@@ -185,7 +178,6 @@ h5 {
 }
 
 header {
-  @include type("title-5");
   align-items: center;
   height: 60px;
   justify-content: space-between;
@@ -193,11 +185,10 @@ header {
   max-width: var(--maxWidth);
   width: percentage(10/12);
 
-  & a {
-    text-decoration: none; // TODO: maybe remove?
-  }
   & li {
-    margin: spacing-get-value("medium") 0;
+    padding: 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
   & ul {
     list-style: none;
@@ -209,7 +200,7 @@ header {
     height: 80px;
 
     & li {
-      margin: 0;
+      // margin: 0;
       margin-left: spacing-get-value("small");
     }
   }
@@ -219,9 +210,9 @@ header {
   /* menu */
 
   & .menu {
+    @include type("copy");
     clear: both;
     max-height: 0;
-    transition: max-height 0.2s ease-out;
     padding-left: 0;
 
     @include breakpoint("medium") {
@@ -276,18 +267,13 @@ header {
   & .menu-btn {
     display: none;
 
-    // &:checked .site-title {
-    //   display: none;
-    // }
-
     &:checked ~ .menu {
       background: var(--colorLight);
       border-bottom: 1px solid rgba(var(--colorGray), 0.05);
       height: 100vh;
       max-height: 100vh;
-      margin-top: 5px;
-
-      // make it cover screen
+      margin-top: 60px;
+      transition: max-height 0.2s ease-in;
 
       @include breakpoint("medium") {
         border: none;
@@ -355,13 +341,7 @@ header {
     }
   }
 }
-.blurb,
-.caption {
-  padding-top: spacing-get-value("micro");
-  @include breakpoint("medium") {
-    padding-top: spacing-get-value("small");
-  }
-}
+
 .reverse {
   flex-direction: row-reverse;
 
@@ -376,8 +356,8 @@ header {
 }
 
 // ----------------- CASE STUDY ----------------- //
-.ULlist {
-  color: salmon;
+ul {
+  padding-inline-start: 1em;
 }
 
 // ----------------- ARCHIVE ----------------- //
@@ -397,11 +377,10 @@ header {
 
 // ----------------- ABOUT CONCISE ----------------- //
 .about-concise {
-  @include type("copy-large");
+  @include type("copy");
 }
 // ----------------- ABOUT ----------------- //
 .about {
-  @include type("copy-standard");
   margin-bottom: spacing-get-value("large");
 
   @include breakpoint("medium") {
