@@ -39,21 +39,16 @@ a {
 
 button {
   @include type("copy");
-  display: flex;
-  background-color: var(--colorDark);
   border: 1px solid transparent;
   border-radius: 0;
-  color: var(--colorLight);
   cursor: pointer;
   letter-spacing: 0.06em;
-  padding: 0.75rem 3rem;
-  opacity: 1;
   outline: none;
   text-transform: uppercase;
   text-shadow: 0 1px 0 var(--colorDark);
 
   &:hover {
-    opacity: 0.9;
+    opacity: 1;
   }
 
   @include breakpoint("medium") {
@@ -66,6 +61,29 @@ button {
   // }
 }
 
+.button {
+  &--project {
+    background-color: var(--colorDark);
+    color: var(--colorLight);
+    display: flex;
+    opacity: 0.9;
+    padding: 0.75rem 3rem;
+  }
+  &--scroll {
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    bottom: 10px;
+    height: 40px;
+    opacity: 0.3;
+    position: fixed;
+    right: 10px;
+    width: 40px;
+    @include breakpoint("medium") {
+      margin-right: 10px;
+    }
+  }
+}
 img {
   background-color: transparent;
   border-radius: 5px;

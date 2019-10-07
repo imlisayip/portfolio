@@ -54,12 +54,12 @@ export default class Project extends React.Component {
 
                                     {site
                                         ? <a href={project.link}>
-                                            <button>
+                                            <button className='button--project'>
                                                 Visit site
                                             </button>
                                         </a>
                                         : <Link to='/aio'>
-                                            <button>View {block}</button>
+                                            <button className='button--project'>View {block}</button>
                                         </Link>
 
                                     }

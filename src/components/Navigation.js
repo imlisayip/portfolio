@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import Headroom from 'react-headroom'
 
 const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
-
     function checkbox() {
         if (window.innerWidth < 736) {
             document.getElementById("menu-btn").checked = false;

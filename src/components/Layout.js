@@ -1,6 +1,9 @@
 import React from 'react'
-import Navigation from '../components/navigation'
-import Footer from '../components/footer'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import ScrollButton from '../components/ScrollButton'
+
+import '../index.scss'
 
 export default ({ children }) => (
     <>
@@ -9,9 +12,9 @@ export default ({ children }) => (
             {children}
             <Footer />
         </div>
+        <ScrollButton scrollStepInPx="50" delayInMs="16.66" />
     </>
 
 )
 
-// scroll to top
 // social media on side vertically
