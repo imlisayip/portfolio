@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Layout from '../components/Layout'
 
 const CaseStudyExpanded = () => {
     const data = useStaticQuery(graphql`
@@ -43,8 +44,8 @@ const CaseStudyExpanded = () => {
     const { title, content, projectOverview, image } = data.allContentfulCaseStudy.edges[0].node;
 
     return (
-        <>
-            <h1>{title}</h1>
+        <Layout>
+            <h1>{title}</ h1>
             <div className='project-overview'>
                 <img
                     alt={image.description}
@@ -55,7 +56,7 @@ const CaseStudyExpanded = () => {
             <div className='project-content'>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
             </div>
-        </>
+        </Layout>
     )
 }
 

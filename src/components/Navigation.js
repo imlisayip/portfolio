@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'gatsby'
 import Headroom from 'react-headroom'
-
-// import Contact from './contact'
 
 const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
 
@@ -16,7 +14,7 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
     return (
         <Headroom>
             <header className="header">
-                <NavLink onClick={checkbox} activeClassName='' className="site-title" to='/' >{siteTitle} </NavLink>
+                <Link onClick={checkbox} activeClassName='' className="site-title" to='/' >{siteTitle} </Link>
 
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
                 <label className="menu-icon" htmlFor="menu-btn">
@@ -24,24 +22,17 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
                 </label>
                 <ul className='menu'>
                     <li>
-                        <NavLink onClick={checkbox} exact activeClassName='active' to='/'>Work</NavLink>
+                        <Link onClick={checkbox} activeClassName='active' to='/'>Work</Link>
                     </li>
                     <li>
-                        <NavLink onClick={checkbox} activeClassName='active' to='/about'>About</NavLink>
+                        <Link onClick={checkbox} activeClassName='active' to='/about'>About</Link>
                     </li>
                     <li>
-                        <NavLink onClick={checkbox} activeClassName='active' to='/aio'>Case Study</NavLink>
+                        <Link onClick={checkbox} activeClassName='active' to='/aio'>Case Study</Link>
                     </li>
-                    {/* <li>
-                        <NavLink onClick={checkbox} activeClassName='active' to='/style-guide'>Style Guide</NavLink>
-                    </li> */}
                     <li>
                         <a onClick={checkbox} href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>
-                    {/* <li>
-                    <Contact />
-                </li> */}
-
                 </ul>
             </header>
         </Headroom>

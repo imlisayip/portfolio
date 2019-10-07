@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
+import Layout from '../components/Layout'
 
 // import SEO from '../components/seo'
 
@@ -38,7 +39,7 @@ const About = () => {
 
 
     return (
-        <>
+        <Layout>
             {/* <SEO title='About' keywords={[`gatsby`, `about`, `react`]} /> */}
             <div className='about'>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
@@ -49,7 +50,7 @@ const About = () => {
                 />
                 <p className='image-caption'>{image.title}</p>
             </div>
-        </>
+        </Layout>
     );
 }
 

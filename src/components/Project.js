@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby'
+
 import { MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import CaseStudyExpanded from '../pages/CaseStudyExpanded';
 
+import CaseStudyExpanded from '../pages/aio';
 
 export default class Project extends React.Component {
     constructor(props) {
@@ -56,10 +58,10 @@ export default class Project extends React.Component {
                                                 Visit site
                                             </button>
                                         </a>
-                                        : <button
-                                            onClick={() => this.setState({ caseStudy: true })} >
-                                            View {block}
-                                        </button>
+                                        : <Link to='/aio'>
+                                            <button>View {block}</button>
+                                        </Link>
+
                                     }
                                 </div>
                             </div>

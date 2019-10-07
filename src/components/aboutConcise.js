@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
@@ -27,7 +27,7 @@ const AboutConcise = () => {
     }
 
     const { title, body } = data.allContentfulAboutConcise.nodes[0];
-    const aboutLink = <NavLink activeClassName='active' to='/about'>Read more.</NavLink>
+    const aboutLink = <Link activeClassName='active' to='/about'>Read more.</Link>
 
     return (
         <>
