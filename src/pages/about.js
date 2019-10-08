@@ -49,9 +49,12 @@ const About = () => {
                     src={image.file.url}
                 />
                 <p className='image-caption'>{image.title}</p>
+                <p>Likes include: sunny warm weather, hammocks, superfoods,
+                triathons, reading, volunteering, traveling.</p>
+
             </div>
         </Layout>
-    );
+    )
 }
 
 export default About
