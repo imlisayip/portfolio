@@ -3,7 +3,6 @@ import AboutConcise from '../components/AboutConcise'
 import CaseStudy from '../components/CaseStudy'
 import Archives from '../components/Archives'
 
-
 export default class Work extends React.Component {
     render() {
         return (
