@@ -5,7 +5,6 @@ import { MARKS } from '@contentful/rich-text-types';
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
-
 const About = () => {
     const data = useStaticQuery(graphql`
         query AboutQuery {
@@ -35,7 +34,7 @@ const About = () => {
         }
     }
 
-    const { image, contact, content } = data.allContentfulAbout.nodes[0];
+    const { image, content } = data.allContentfulAbout.nodes[0];
 
 
     return (
@@ -58,8 +57,6 @@ const About = () => {
                 </p>
 
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
-                {/* <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(contact.json, options) }} /> */}
-
             </div>
         </Layout>
     )
