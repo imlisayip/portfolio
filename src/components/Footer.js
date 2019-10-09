@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Link } from 'gatsby'
-import Contact from './contact'
+import Contact from './Contact'
 import { FaGithub, FaInstagram, FaLinkedin, FaSwatchbook } from 'react-icons/fa'
 
 const Footer = () => {
