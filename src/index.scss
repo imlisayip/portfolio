@@ -16,11 +16,7 @@ body {
 
 a {
   background-color: transparent;
-
-  &:-webkit-any-link {
-    color: var(--colorDark);
-    text-decoration: none;
-  }
+  color: var(--colorDark);
 
   & button {
     color: var(--colorLight);
@@ -54,14 +50,13 @@ button {
   @include breakpoint("medium") {
     margin: 30px 0;
   }
-
-  // a {
-  //   color: var(--colorLight);
-  //   text-decoration: none;
-  // }
 }
 
 .button {
+  &--copy {
+    margin: 0;
+    background: transparent;
+  }
   &--project {
     background-color: var(--colorDark);
     color: var(--colorLight);
@@ -69,6 +64,7 @@ button {
     opacity: 0.9;
     padding: 0.75rem 3rem;
   }
+
   &--scroll {
     background-color: transparent;
     border-radius: 5px;
@@ -79,6 +75,7 @@ button {
     position: fixed;
     right: 10px;
     width: 40px;
+
     @include breakpoint("medium") {
       margin-right: 10px;
     }
@@ -139,10 +136,6 @@ span,
     -webkit-transition: width 0s ease, background 0.4s ease;
     transition: width 0s ease, background 0.4s ease;
   }
-
-  & a {
-    text-decoration: none;
-  }
 }
 
 // ----------------- UNIVERSAL ----------------- //
@@ -165,7 +158,6 @@ span,
 
 h1 {
   @include type("title-1");
-  // color: var(--colorHex);
 }
 h2 {
   @include type("title-2");
@@ -176,7 +168,6 @@ h3 {
 h4 {
   @include type("title-4");
 }
-
 p {
   @include type("copy");
 }
@@ -203,11 +194,16 @@ header {
   max-width: var(--maxWidth);
   width: percentage(10/12);
 
+  & a {
+    text-decoration: none;
+  }
+
   & li {
     padding: 0.75rem 0;
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
+
   & ul {
     list-style: none;
     overflow: hidden;
@@ -321,9 +317,11 @@ header {
 }
 
 // ----------------- FOOTER ----------------- //
-// .footer {
-//   background-color: linen;
-// }
+.footer {
+  display: flex;
+  border-top: 1px solid salmon;
+  // border-top: 1px solid rgba(var(--colorGray), 0.05);
+}
 
 // ----------------- WORK ----------------- //
 // .showcase {
@@ -412,27 +410,20 @@ ul {
 // ----------------- CONTACT ----------------- //
 
 .contact {
-  .word {
-    display: block;
-  }
+  position: relative;
 
-  .email {
-    display: none;
-  }
   .contact-molecule {
     display: none;
-    margin-top: -27px;
-    margin-left: 35px;
+    position: absolute;
+    top: -25px;
   }
 
   &:hover {
+    cursor: pointer;
     color: var(--colorHex);
-    .word {
-      display: none;
-    }
     .email,
     .contact-molecule {
-      display: flex;
+      display: block;
     }
   }
 }

@@ -26,9 +26,9 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
                     <li>
                         <Link onClick={checkbox} activeClassName='active' to='/about'>About</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link onClick={checkbox} activeClassName='active' to='/aio'>Case Study</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <a onClick={checkbox} href='http://lisayip.com/Yip_Lisa_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>

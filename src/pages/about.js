@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
-// import SEO from '../components/seo'
 
 const About = () => {
     const data = useStaticQuery(graphql`
@@ -40,17 +40,25 @@ const About = () => {
 
     return (
         <Layout>
-            {/* <SEO title='About' keywords={[`gatsby`, `about`, `react`]} /> */}
+            <SEO title='About' keywords={[`gatsby`, `about`, `react`]} />
             <div className='about'>
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(contact.json, options) }} />
+
                 <img
                     alt={image.title}
                     src={image.file.url}
                 />
                 <p className='image-caption'>{image.title}</p>
-                <p>Likes include: sunny warm weather, hammocks, superfoods,
-                triathons, reading, volunteering, traveling.</p>
+                <p>
+                    Likes include: sunny warm weather, hammocks, smoothies,
+                    triathons, book reading, volunteering, and traveling world wide.
+                </p>
+                <p>
+                    Adjectives include: intrepid, responsible, candid, and results-oriented.
+
+                </p>
+
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
+                {/* <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(contact.json, options) }} /> */}
 
             </div>
         </Layout>

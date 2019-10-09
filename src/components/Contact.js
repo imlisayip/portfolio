@@ -3,7 +3,7 @@ import { FaExternalLinkAlt, FaClone } from 'react-icons/fa'
 
 const Contact = () => {
 
-    // let emailButton = document.getElementById('email-button');
+    // let emailButton = document.getElementById('button--copy');
 
     // emailButton.addEventListener('click', function (e) {
     //     e.preventDefault();
@@ -16,20 +16,14 @@ const Contact = () => {
         <div className='contact'>
             <div className='contact-molecule'>
                 {/* TODO: copy email button */}
-                <button className='email-button' onClick={() => { console.log('button clicked') }}>
+                <button className='button--copy' onClick={() => { console.log('button clicked') }}>
                     <FaClone color='darkolivegreen' size={22} />
                 </button>
-                <a href='mailto:hello@lisayip.com'>
+                <a className='button--email' href='mailto:hello@lisayip.com'>
                     <FaExternalLinkAlt color='darkolivegreen' size={22} />
                 </a>
             </div>
-
-            <div className='word'>
-                Contact
-                </div>
-            <div className='email'>
-                hello@lisayip.com
-                </div>
+            <span>hello@lisayip.com</span>
         </div>
 
     )
