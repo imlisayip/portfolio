@@ -8,8 +8,8 @@ const Work = () => {
         <>
             <div className='home'>
                 <p>
-                    Welcome! I'm am a UX engineer constantly on the search to improve process
-                     have delivered digital brand experiences at
+                    Welcome! My name is Lisa. I'm a UX engineer constantly striving to improve function and form.
+                    Delivered digital brand experiences at
                         {' '}<a href='http://patreon.com'>Patreon</a>,
                         {' '}<a href='https://dropbox.com'>Dropbox</a>, and
                         {' '}<a href='http://informatica.com'>Informatica</a>.
