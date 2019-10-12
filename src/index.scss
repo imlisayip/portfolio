@@ -73,13 +73,13 @@ button {
     border: none;
     bottom: 10px;
     color: var(--colorDark);
-    height: 50px;
+    height: 45px;
     opacity: 0.3;
     padding-top: 7px;
     position: fixed;
     right: percentage(1/12);
     transition: 0.4s ease;
-    width: 50px;
+    width: 45px;
 
     &:hover {
       color: var(--colorLight);
@@ -221,7 +221,8 @@ footer {
 }
 
 .site-title {
-  padding: 20px 0;
+  padding: 20px 0 19px;
+
   @include breakpoint("medium") {
     padding: 0;
   }
@@ -242,6 +243,8 @@ footer {
     clear: both;
     max-height: 0;
     padding-left: 0;
+    margin-top: 0;
+    padding-top: 15px;
 
     @include breakpoint("medium") {
       display: flex;
