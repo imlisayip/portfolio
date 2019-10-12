@@ -213,22 +213,25 @@ footer {
   }
 }
 
+.site-title {
+  padding: 20px 0;
+  @include breakpoint("medium") {
+    padding: 0;
+  }
+}
+
 .header {
   align-items: center;
   height: 60px;
   justify-content: space-between;
+  text-transform: uppercase;
 
   @include breakpoint("medium") {
     display: flex;
     height: 80px;
   }
 
-  & li {
-    text-transform: uppercase;
-  }
-
   & .menu {
-    // @include type("copy");
     clear: both;
     max-height: 0;
     padding-left: 0;
@@ -287,10 +290,9 @@ footer {
 
     &:checked ~ .menu {
       background: var(--colorLight);
-      border-bottom: 1px solid rgba(var(--colorGray), 0.05);
       height: 100vh;
       max-height: 100vh;
-      margin-top: 60px;
+      // margin-top: 0;
       transition: max-height 0.2s ease-in;
 
       @include breakpoint("medium") {

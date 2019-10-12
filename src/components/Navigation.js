@@ -7,16 +7,26 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
     function checkbox() {
         if (window.innerWidth < 736) {
             document.getElementById("menu-btn").checked = false;
+            document.body.style.overflow = 'auto';
         }
     }
 
+    function handleNav() {
+        document.getElementById("menu-btn").checked === false
+            ? document.body.style.overflow = 'hidden'
+            : document.body.style.overflow = 'auto'
+    }
     return (
         <Headroom>
             <header className="header">
-                <Link onClick={checkbox} activeClassName='' className="site-title" to='/' >{siteTitle} </Link>
+                <div className='site-title'>
+                    <Link onClick={checkbox} activeClassName='' className="site-title" to='/' >
+                        {siteTitle}
+                    </Link>
+                </div>
 
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
-                <label className="menu-icon" htmlFor="menu-btn">
+                <label className="menu-icon" htmlFor="menu-btn" onClick={handleNav}>
                     <span className="navicon"></span>
                 </label>
                 <ul className='menu'>
@@ -48,6 +58,3 @@ Navigation.defaultProps = {
 }
 
 export default Navigation
-
-// scroll to top
-// social media on side vertically
