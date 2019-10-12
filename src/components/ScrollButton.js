@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaLevelUpAlt } from 'react-icons/fa'
+import { FaArrowUp } from 'react-icons/fa'
 
 export default class ScrollButton extends React.Component {
     constructor() {
@@ -25,7 +25,7 @@ export default class ScrollButton extends React.Component {
     render() {
         return <button title='Back to top' className='button--scroll'
             onClick={() => { this.scrollToTop(); }}>
-            <FaLevelUpAlt size={35} />
+            <FaArrowUp size={35} />
         </button>;
     }
 }

@@ -43,6 +43,7 @@ button {
   letter-spacing: 0.06em;
   outline: none;
   text-shadow: 0 1px 0 var(--colorDark);
+  transition: 0.4s ease;
   opacity: 0.9;
 
   &:hover {
@@ -67,20 +68,26 @@ button {
   }
 
   &--scroll {
-    background-color: transparent;
-    color: var(--colorDark);
-
-    border-radius: 5px;
+    background-color: rgba(var(--colorGray), 0.5);
+    border-radius: 50%;
     border: none;
     bottom: 10px;
-    height: 40px;
+    color: var(--colorDark);
+    height: 50px;
     opacity: 0.3;
+    padding-top: 7px;
     position: fixed;
-    right: 10px;
-    width: 40px;
+    right: percentage(1/12);
+    transition: 0.4s ease;
+    width: 50px;
+
+    &:hover {
+      color: var(--colorLight);
+      background-color: rgba(var(--colorGray), 1);
+    }
 
     @include breakpoint("medium") {
-      padding-right: spacing-get-value("micro");
+      right: percentage(1/24);
     }
   }
 }
