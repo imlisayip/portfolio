@@ -40,24 +40,28 @@ const About = () => {
     return (
         <Layout>
             <SEO title='About' keywords={[`gatsby`, `about`, `react`]} />
-            <div className='about'>
 
-                <img
-                    alt={image.title}
-                    src={image.file.url}
-                />
-                <p className='image-caption'>{image.title}</p>
+            {/* possible  different desktop + mobile pic  */}
+            <img
+                alt={image.title}
+                src={image.file.url}
+            />
+
+            <p className='image-caption'>
+                {image.title}
+            </p>
+            <div className='facts'>
                 <p>
                     Likes include: sunny warm weather, hammocks, smoothies,
-                    triathons, book reading, volunteering, and traveling world wide.
+                    training, book reading, volunteering, and traveling world wide.
                 </p>
+
                 <p>
-                    Adjectives include: intrepid, responsible, candid, and results-oriented.
-
+                    Adjectives include: intrepid, responsible, candid, warm, independent, communicative and results-oriented.
                 </p>
-
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
             </div>
+
+            <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(content.json, options) }} />
         </Layout>
     )
 }

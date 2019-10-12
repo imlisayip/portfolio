@@ -7,15 +7,14 @@ const Work = () => {
     return (
         <>
             <div className='home'>
-                <p>
-                    Welcome! My name is Lisa. I'm a UX engineer constantly striving to improve function and form.
+                <div className='blurb'>
+                    Welcome! I'm a UX engineer constantly striving to improve function and form.
                     Delivered digital brand experiences at
-                        {' '}<a href='http://patreon.com'>Patreon</a>,
-                        {' '}<a href='https://dropbox.com'>Dropbox</a>, and
-                        {' '}<a href='http://informatica.com'>Informatica</a>.
-
-                        {' '}<Link activeClassName='active' to='/about'><span>Read more.</span></Link>
-                </p>
+                    {' '}<a href='http://patreon.com'>Patreon</a>,
+                    {' '}<a href='https://dropbox.com'>Dropbox</a>, and
+                    {' '}<a href='http://informatica.com'>Informatica</a>.
+                    {' '}<Link activeClassName='active' to='/about'><span>Read more.</span></Link>
+                </div>
             </div>
             <div className='showcase'>
                 <div className='block'>

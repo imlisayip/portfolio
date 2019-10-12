@@ -25,7 +25,7 @@ export default class ScrollButton extends React.Component {
     render() {
         return <button title='Back to top' className='button--scroll'
             onClick={() => { this.scrollToTop(); }}>
-            <FaLevelUpAlt color='darkolivegreen' size={35} />
+            <FaLevelUpAlt size={35} />
         </button>;
     }
 }

@@ -8,10 +8,8 @@ import '../index.scss'
 export default ({ children }) => (
     <>
         <Navigation siteTitle='Lisa Yip' />
-        <div className='container'>
-            {children}
-            <Footer />
-        </div>
+        <div className='container'> {children} </div>
+        <Footer />
         <ScrollButton scrollStepInPx="50" delayInMs="16.66" />
     </>
 

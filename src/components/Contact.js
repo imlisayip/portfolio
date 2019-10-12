@@ -12,20 +12,23 @@ const Contact = () => {
     // function copy(text) {
     //     document.execCommand('copy', false, text);
     // }
-    return (
-        <div className='contact'>
-            <div className='contact-molecule'>
-                {/* TODO: copy email button */}
-                <button className='button--copy' onClick={() => { console.log('button clicked') }}>
-                    <FaClone color='darkolivegreen' size={22} />
-                </button>
-                <a className='button--email' href='mailto:hello@lisayip.com'>
-                    <FaExternalLinkAlt color='darkolivegreen' size={22} />
-                </a>
-            </div>
-            <span>hello@lisayip.com</span>
-        </div>
 
+    // {/* TODO: copy email button */ }
+    const copy = () => {
+        console.log('button copy clicked')
+    }
+    const mailto = () => {
+        console.log('button mailto clicked')
+    }
+    return (
+        <span className='contact'>
+            <div className='contact-molecule'>
+                <button className='button--contact' onClick={copy}> copy</button>
+                <button className='button--contact' onClick={mailto}>mailto</button>
+            </div>
+            hello@lisayip.com
+            {/* whatdotoonmobile */}
+        </span>
     )
 }
 
