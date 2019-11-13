@@ -18,10 +18,10 @@ const Work = () => {
             </div>
             <div className='showcase'>
                 <div className='block'>
-                    <CaseStudy />
+                    <Archives />
                 </div>
                 <div className='block'>
-                    <Archives />
+                    <CaseStudy />
                 </div>
             </div>
         </>

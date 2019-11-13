@@ -6,7 +6,7 @@ import Work from './work'
 
 export default () => (
     <Layout>
-        <SEO title='Work' keywords={[`gatsby`, `work`, `react`]} />
+        <SEO title='Lisa Yip' keywords={[`gatsby`, `work`, `react`]} />
         <Work />
     </Layout>
 )
