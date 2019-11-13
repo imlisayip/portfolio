@@ -18,10 +18,10 @@ const Footer = () => {
             </p>
 
             <p className='social'>
-                <a href='https://github.com/imlisayip/'><FaGithub size={22} /></a>
-                <a href='https://linkedin.com/in/imlisayip/'><FaLinkedin size={22} /></a>
-                <a href='https://www.strava.com/athletes/29301237'><FaStrava size={22} /></a>
-                <a href='https://instagram.com/imlisayip/'><FaInstagram size={22} /></a>
+                <a aria-label="Github profile link" href='https://github.com/imlisayip/'><FaGithub size={22} /></a>
+                <a aria-label="LinkedIn profile link" href='https://linkedin.com/in/imlisayip/'><FaLinkedin size={22} /></a>
+                <a aria-label="Strava profile link" href='https://www.strava.com/athletes/29301237'><FaStrava size={22} /></a>
+                <a aria-label="Instagram profile link" href='https://instagram.com/imlisayip/'><FaInstagram size={22} /></a>
                 <p>@imlisayip on social things</p>
             </p>
             {/* where can I add this? 
@@ -29,7 +29,7 @@ const Footer = () => {
                     <span>Style Guide</span>
                 </Link>
             */}
-        </footer >
+        </footer>
     )
 }
 
