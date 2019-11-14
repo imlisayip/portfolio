@@ -1,4 +1,6 @@
 import React from 'react'
+import SEO from '../components/SEO'
+
 import { graphql, useStaticQuery } from 'gatsby'
 import { MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -45,6 +47,8 @@ const CaseStudyExpanded = () => {
 
     return (
         <Layout>
+            <SEO title='AIO' keywords={[`gatsby`, `work`, `react`]} />
+
             <h1>{title}</ h1>
             <div className='project-overview'>
                 <img
