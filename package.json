@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "lisa-yip-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple portfolio showcasing work created with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Lisa Yip <imlisayip@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "gatsby": "^2.18.13",
