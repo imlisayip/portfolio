@@ -3,7 +3,25 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Headroom from 'react-headroom'
 
+import { graphql, useStaticQuery } from 'gatsby'
+
 const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
+
+    const data = useStaticQuery(graphql` 
+        query MyQuery {
+            allContentfulAsset {
+                edges {
+                    node {
+                        title
+                            file {
+                                url
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
     function checkbox() {
         if (window.innerWidth < 736) {
             document.getElementById("menu-btn").checked = false;
@@ -16,6 +34,16 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
             ? document.body.style.overflow = 'hidden'
             : document.body.style.overflow = 'auto'
     }
+
+    const nodes = data.allContentfulAsset.edges.filter(node => {
+        let title = node.node.title
+        if (title === 'Lisa Yip Resume') {
+            return node.node.file.url
+
+        }
+    })
+    const resume = nodes[0].node.file.url
+
     return (
         <Headroom>
             <header className="header">
@@ -40,7 +68,7 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
                         <Link onClick={checkbox} activeClassName='active' to='/aio'>Case Study</Link>
                     </li> */}
                     <li>
-                        <a onClick={checkbox} href='http://lisayip.com/YIP_Resume.pdf' target='_blank' rel="noopener noreferrer">Resume</a>
+                        <a onClick={checkbox} href={resume} target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>
                 </ul>
             </header>
