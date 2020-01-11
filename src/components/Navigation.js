@@ -67,7 +67,10 @@ const Navigation = ({ siteTitle = 'Lisa Yip' }) => {
                     {/* <li>
                         <Link onClick={checkbox} activeClassName='active' to='/aio'>Case Study</Link>
                     </li> */}
-                    <li>
+                    <li className="resume-desktop">
+                        <Link onClick={checkbox} activeClassName='active' to='/resume'>Resume</Link>
+                    </li>
+                    <li className="resume-mobile">
                         <a onClick={checkbox} href={resume} target='_blank' rel="noopener noreferrer">Resume</a>
                     </li>
                 </ul>

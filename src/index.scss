@@ -228,6 +228,20 @@ footer {
   }
 }
 
+.resume-mobile {
+  display: block;
+  @include breakpoint("large") {
+    display: none;
+  }
+}
+
+.resume-desktop {
+  display: none;
+  @include breakpoint("large") {
+    display: block;
+  }
+}
+
 .header {
   align-items: center;
   height: 60px;
