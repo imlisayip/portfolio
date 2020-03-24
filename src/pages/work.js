@@ -8,9 +8,7 @@ const Work = () => {
         <>
             <div className='home'>
                 <div className='blurb'>
-                    Welcome! I'm a UX engineer constantly striving to improve function and form.
-                    Delivered digital brand experiences at
-                    {' '}<a href='http://patreon.com'>Patreon</a>,
+                    Welcome! I'm a UX engineer at{' '}<a href='http://patreon.com'>Patreon</a>, constantly striving to improve function and form. Previously delivered digital brand experiences at
                     {' '}<a href='https://dropbox.com'>Dropbox</a>, and
                     {' '}<a href='http://informatica.com'>Informatica</a>.
                     {' '}<Link activeClassName='active' to='/about'><span>Read more.</span></Link>
